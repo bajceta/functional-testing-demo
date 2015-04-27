@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Functional testing demo</title>
+	<script>
+		var counter = 0;
+		function increment(){
+			counter++;
+			document.querySelector('#counter').textContent=counter;
+		}
+
+		function delayedIncrement(){
+			setTimeout(increment,3000);
+		}
+	</script>
+</head>
+<body>
+	<h1>Welcome to simple testing</h1>
+
+	<button id="instant" onclick="increment()">Instant increment</button>
+
+	<button id="delayed" onclick="delayedIncrement()">Delayed increment</button>
+
+	<span id="counter">0</>
+
+</body>
+</html>

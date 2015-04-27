@@ -1,0 +1,31 @@
+{
+  "name": "functional-testing-demo",
+  "version": "0.0.0",
+  "description": "Webdriver.io with mocha ",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bajceta/functional-testing-demo.git"
+  },
+  "keywords": [
+    "webdriver.io",
+    "mocha"
+  ],
+  "author": "Vladimir Bajceta",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/bajceta/functional-testing-demo/issues"
+  },
+  "dependencies": {
+    "gulp": "~3.8.11",
+    "chromedriver": "~2.15.0",
+    "webdriverio": "~2.4.5",
+    "gulp-util": "~3.0.4"
+  }
+}
