@@ -29,7 +29,7 @@ describe('Demo page', function() {
     });
 
     it('should have a proper title', function(done) {
-        client.url('localhost:8080/demo.html')
+        client.url('localhost:8070/demo.html')
             .getTitle(function(err, title) {
                 assert.equal('Functional testing demo', title, "Title is not correct");
             })
@@ -37,7 +37,7 @@ describe('Demo page', function() {
     });
 
     it('should have heading with welcome text', function(done) {
-        client.url('localhost:8080/demo.html')
+        client.url('localhost:8070/demo.html')
             .getText('h1', function(err, text) {
                 assert.equal('Welcome to simple testing', text);
             })
@@ -46,7 +46,7 @@ describe('Demo page', function() {
 
 
     it('should increment the counter when we hit the instant increment button', function(done) {
-        client.url('localhost:8080/demo.html')
+        client.url('localhost:8070/demo.html')
             .click('#instant')
             .getText('#counter', function(err, text) {
                 assert.equal(text, '1');
@@ -55,7 +55,7 @@ describe('Demo page', function() {
     });
 
     it('should increment the counter when we hit the delayed increment button', function(done) {
-        client.url('localhost:8080/demo.html')
+        client.url('localhost:8070/demo.html')
             .click('#delayed')
             .pause(5000)
             .getText('#counter', function(err, text) {
@@ -66,7 +66,7 @@ describe('Demo page', function() {
 
 
     it('should increment the counter when we hit the delayed increment button without a hardcoded pause', function(done) {
-        client.url('localhost:8080/demo.html')
+        client.url('localhost:8070/demo.html')
             .click('#delayed');
 
         var maxwait = 5000,
@@ -84,8 +84,8 @@ describe('Demo page', function() {
                     assert(match, "The value didn't increment!!!");
                     done();
                 }
-            })
-        };
+            });
+        }
 
         check();
         setTimeout(function() {
@@ -109,8 +109,8 @@ describe('Demo page', function() {
                         assert.equal(text, expected);
                         cb(err);
                     }
-                })
-            };
+                });
+            }
 
             check();
 
@@ -120,9 +120,8 @@ describe('Demo page', function() {
         });
     });
 
-
     it('should increment the counter when we hit the delayed increment button without a hardcoded pause (short version)', function(done) {
-        client.url('localhost:8080/demo.html')
+        client.url('localhost:8070/demo.html')
             .click('#delayed')
             .assertText('#counter', '1', 5000)
             .call(done);
