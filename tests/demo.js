@@ -8,7 +8,8 @@ var seleniumHubSettings = {
         browserName: 'chrome',
         chromeOptions: {
             args: [
-                'window-size=340,750'
+                'window-size=320,250',
+                'window-position=0,0'
             ]
         }
     }
@@ -28,6 +29,10 @@ describe('Demo page', function() {
         client.end(done);
     });
 
+
+
+
+
     it('should have a proper title', function(done) {
         client.url('localhost:8070/demo.html')
             .getTitle(function(err, title) {
@@ -35,6 +40,11 @@ describe('Demo page', function() {
             })
             .call(done);
     });
+
+
+
+
+
 
     it('should have heading with welcome text', function(done) {
         client.url('localhost:8070/demo.html')
@@ -45,24 +55,40 @@ describe('Demo page', function() {
     });
 
 
+
+
+
+
+
     it('should increment the counter when we hit the instant increment button', function(done) {
         client.url('localhost:8070/demo.html')
             .click('#instant')
             .getText('#counter', function(err, text) {
                 assert.equal(text, '1');
             })
+            .pause(5000)
             .call(done);
     });
+
+
+
+
+
+
 
     it('should increment the counter when we hit the delayed increment button', function(done) {
         client.url('localhost:8070/demo.html')
             .click('#delayed')
-            .pause(5000)
+           .pause(5000)
             .getText('#counter', function(err, text) {
-                assert.equal(text, '1');
+                assert.equal(text, '1',"The value didn't increase");
             })
             .call(done);
     });
+
+
+
+
 
 
     it('should increment the counter when we hit the delayed increment button without a hardcoded pause', function(done) {
@@ -92,6 +118,11 @@ describe('Demo page', function() {
             waiting = false;
         }, maxwait);
     });
+
+
+
+
+
 
     before(function() {
         client.addCommand("assertText", function(selector, expected, timeout, cb) {
